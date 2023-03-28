@@ -1,46 +1,16 @@
 [![CI](https://github.com/nogibjj/mlops-template/actions/workflows/cicd.yml/badge.svg?branch=GPU)](https://github.com/nogibjj/mlops-template/actions/workflows/cicd.yml)
 [![Codespaces Prebuilds](https://github.com/nogibjj/mlops-template/actions/workflows/codespaces/create_codespaces_prebuilds/badge.svg?branch=GPU)](https://github.com/nogibjj/mlops-template/actions/workflows/codespaces/create_codespaces_prebuilds)
 
-## Template for MLOPs projects with GPU
+## Rust TensorFlow
 
-**CONDA IS NOT NEEDED AS A PACKAGE MANAGER.  All setup is done using the Python Software Foundation recommended tools:  virtualenv and pip and mainstream production tools Docker.  Please see [PEP 453](https://peps.python.org/pep-0453/) "officially recommend the use of pip as the default installer for Python packages"**
+Checkout project and cd into `rust` repo:  https://github.com/tensorflow/rust
 
-*GitHub Codespaces are FREE for education and as are GPU Codespaces as of this writing in December 2022*
+* build with multicore: `cargo build -j 6 --features="eager" --example mobilenetv3`
 
-1. First thing to do on launch is to open a new shell and verify virtualenv is sourced.
+* to test out GPU project, cd into `kick-tires-rust-tf` and do a `make build` then `cargo run` and also run `nvidia-smi -l 1`
 
-Things included are:
 
-* `Makefile`
-
-* `Pytest`
-
-* `pandas`
-
-* `Pylint`
-
-* `Dockerfile`
-
-* `GitHub copilot`
-
-* `jupyter` and `ipython` 
-
-* Most common Python libraries for ML/DL and Hugging Face
-
-* `githubactions` 
-
-## Two fun tools to explore:
-
-* Zero-shot classification:  ./hugging-face/zero_shot_classification.py classify
-* Yake for candidate label creation: ./utils/kw_extract.py
-
-## Try out Bento
-
-* [tutorial bento](https://docs.bentoml.org/en/latest/tutorial.html)
-
-`docker run -it --rm -p 8888:8888 -p 3000:3000 -p 3001:3001 bentoml/quickstart:latest`
-
-### Verify GPU works
+## Verify GPU
 
 The following examples test out the GPU (including Docker GPU)
 
